@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="QVTask">
+<head>
+<link data-require="bootstrap-css@3.3.6" data-semver="3.3.6"
+	rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"
+	data-semver="1.5.3" data-require="angular.js@1.5.3"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<meta charset="UTF-8">
+<title>Welcome QuantaVerse</title>
+</head>
+<body ng-controller="DataCntrl">
+	<form name="searchForm" class="form-horizontal">
+		<label for="name" class="control-label">Enter Name here:</label> <input
+			type="text" ng-model="query" placeholder="Enter Here" required="text"
+			id="name">
+		<button ng-disabled="searchForm.$invalid"
+			ng-click="searchQuery(query)" class="btn btn-success">Search</button>
+	</form>
+	<br>
+	<table
+		class="table table-bordered table-striped table-responsive table-hover">
+		<tr>
+			<th>Name</th>
+			<th>Match Score</th>
+		</tr>
+		<tr ng-repeat="data in MatchedData">
+			<td>{{data.name}}</td>
+			<td>{{data.score}} %</td>
+		</tr>
+	</table>
+</body>
+</html>
